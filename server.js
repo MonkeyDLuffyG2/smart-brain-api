@@ -12,10 +12,8 @@ const image = require("./controllers/image.js");
 const db = knex({
   client: "pg",
   connection: {
-    host: "postgresql-silhouetted-42910", //127.0.0.1 means localhost or home
-    user: "root",
-    password: "root",
-    database: "test_db",
+    host: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 
@@ -42,7 +40,7 @@ app.post("/register", (req, res) => {
   register.handleRegister(req, res, db, bcrypt);
 });
 app.get("/profile/:id", (req, res) => {
-  id.handleProfile(req, res, db);
+  profile.handleProfile(req, res, db);
 });
 
 app.put("/image", (req, res) => {
