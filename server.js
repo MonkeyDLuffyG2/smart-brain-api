@@ -12,8 +12,7 @@ const image = require("./controllers/image.js");
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1", //means localhost or home
-    port: 5432,
+    host: "postgresql-silhouetted-42910", //127.0.0.1 means localhost or home
     user: "root",
     password: "root",
     database: "test_db",
