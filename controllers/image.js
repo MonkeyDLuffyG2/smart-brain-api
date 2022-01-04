@@ -22,7 +22,10 @@ const handleImage = (req, res, db) => {
     .then((entries) => {
       res.json(entries[0]);
     })
-    .catch((err) => res.status(400).json("Unable to get entries"));
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json("Unable to get entries");
+    });
 };
 
 module.exports = {
